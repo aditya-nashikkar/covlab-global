@@ -1,0 +1,81 @@
+<nav class="navbar navbar-expand-sm bg-success navbar-dark">
+    <a class="navbar-brand" href="#">Back</a>
+</nav>
+<div class="container">
+    <div class="select-language mt-4" *ngIf="currentSection === 'selectLanguageFlow'">
+        <div class="form-group">
+            <label for="selectLanguage">Select language</label>
+            <select class="form-control" id="selectLanguage" (change)="onChange($event.target.value)">
+                <option value="">Select language to continue</option>
+                <option *ngFor="let availableLanguage of availableLanguages" [value]="availableLanguage">
+                    {{ availableLanguage }}</option>
+            </select>
+        </div>
+    </div>
+    <div class="card-type mt-4 text-center" *ngIf="currentSection === 'cardTypeFlow'">
+        <div id="accordion">
+            <div class="card rounded-0 border-0">
+                <div class="card-header border-0 rounded-0 bg-info text-left">
+                    <a class="card-link text-white" data-toggle="collapse" href="#collapseOne">
+                        Debit card
+                    </a>
+                </div>
+                <div id="collapseOne" class="collapse show" data-parent="#accordion">
+                    <div class="card-body">
+                        <img src="../../../assets/images/card.png" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="card rounded-0 border-0">
+                <div class="card-header border-0 rounded-0 bg-info text-left">
+                    <a class="collapsed card-link text-white" data-toggle="collapse" href="#collapseTwo">
+                        Credit card
+                    </a>
+                </div>
+                <div id="collapseTwo" class="collapse" data-parent="#accordion">
+                    <div class="card-body">
+                        <img src="./../../../assets/images/card.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="enter-pin mt-4" *ngIf="currentSection === 'enterPinFlow'">
+        <label for="pin">Enter PIN</label>
+        <input type="password" class="form-control" name="password" id="password" pattern="[0-9]{4}"
+            inputmode="numeric">
+    </div>
+    <div class="enter-amonut-section" *ngIf="currentSection === 'enterAmountFlow'">
+        <div class="alert alert-dark rounded-0 text-center mt-2">
+            Withdraw cash with Pay Touchless. <br> No card & touch needed.
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control border-0 rounded-0" id="amount" placeholder="Select amount">
+        </div>
+        <div class="alert alert-secondary bg-white rounded-0">
+            <p class="mb-0">Select amount</p>
+            <div class="row">
+                <div class="col-4 pl-0 pr-0 text-center">
+                    <h3><span class="badge badge-pill badge-primary">Rs 100</span></h3>
+                </div>
+                <div class="col-4 pl-0 pr-0 text-center">
+                    <h3><span class="badge badge-pill badge-primary">Rs 500</span></h3>
+                </div>
+                <div class="col-4">
+                    <h3><span class="badge badge-pill badge-primary">Rs 1000</span></h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4 pl-0 pr-0 text-center">
+                    <h3><span class="badge badge-pill badge-primary">Rs 2000</span></h3>
+                </div>
+                <div class="col-4 pl-0 pr-0 text-center">
+                    <h3><span class="badge badge-pill badge-primary">Rs 5000</span></h3>
+                </div>
+                <div class="col-4 pl-0 pr-0 text-center">
+                    <h3><span class="badge badge-pill badge-primary">Rs 10000</span></h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
